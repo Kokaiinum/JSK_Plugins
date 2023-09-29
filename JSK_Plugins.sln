@@ -1,0 +1,110 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uncensor.Challenger", "src\Uncensor\Uncensor.Challenger\Uncensor.Challenger.csproj", "{B446ACF2-4FDC-4AFF-AF00-72177BC0E61C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uncensor.DemonLord", "src\Uncensor\Uncensor.DemonLord\Uncensor.DemonLord.csproj", "{AB8C66E1-5531-4A75-8436-EE67B6732538}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DialogueFix.DemonLord", "src\DialogueFix\DialogueFix.DemonLord\DialogueFix.DemonLord.csproj", "{56D4F01D-5A13-405D-8C52-D59A8DE24A31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DialogueFix.Challenger", "src\DialogueFix\DialogueFix.Challenger\DialogueFix.Challenger.csproj", "{27572AE2-EBB5-4E6F-87AD-EDF9030FBBD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DialogueFix", "DialogueFix", "{A8C82BC5-399B-4899-BA10-B2AEEFE3DEB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Uncensor", "Uncensor", "{AFA579DA-4AF6-4941-9BAF-F2053DBBC290}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Texture", "Texture", "{915202BF-2724-4FA6-8A0C-611C4C205725}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DialogueFix.Core", "src\DialogueFix\DialogueFix.Core\DialogueFix.Core.shproj", "{0A5CCDE2-5650-4C10-9022-4AD0C3F20965}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Uncensor.Core", "src\Uncensor\Uncensor.Core\Uncensor.Core\Uncensor.Core.shproj", "{BE699FDD-716D-40CE-99A9-BFB4A2F4E83B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DialogueFix.MagicalGirl", "src\DialogueFix\DialogueFix.MagicalGirl\DialogueFix.MagicalGirl.csproj", "{38A7CCBC-3898-4CA1-8B42-88B00154DA43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uncensor.MagicalGirl", "src\Uncensor\Uncensor.MagicalGirl\Uncensor.MagicalGirl.csproj", "{DAB9811F-403E-43C0-BED9-A7A15F5E8D07}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "src\Shared\Shared.shproj", "{2FD4D24F-A270-4AA8-AC01-812FB6C81200}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DialogueFix.SenpaiKouhai", "src\DialogueFix\DialogueFix.SenpaiKohai\DialogueFix.SenpaiKouhai.csproj", "{72F78A91-5D0E-4DC2-881E-7A0A48FD4239}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextureReplacer", "src\TextureReplacer\TextureReplacer\TextureReplacer.csproj", "{4AA54725-E7A2-4232-ABE9-CC41275D16EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B446ACF2-4FDC-4AFF-AF00-72177BC0E61C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B446ACF2-4FDC-4AFF-AF00-72177BC0E61C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B446ACF2-4FDC-4AFF-AF00-72177BC0E61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B446ACF2-4FDC-4AFF-AF00-72177BC0E61C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8C66E1-5531-4A75-8436-EE67B6732538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8C66E1-5531-4A75-8436-EE67B6732538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8C66E1-5531-4A75-8436-EE67B6732538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8C66E1-5531-4A75-8436-EE67B6732538}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D4F01D-5A13-405D-8C52-D59A8DE24A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D4F01D-5A13-405D-8C52-D59A8DE24A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D4F01D-5A13-405D-8C52-D59A8DE24A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D4F01D-5A13-405D-8C52-D59A8DE24A31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27572AE2-EBB5-4E6F-87AD-EDF9030FBBD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27572AE2-EBB5-4E6F-87AD-EDF9030FBBD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27572AE2-EBB5-4E6F-87AD-EDF9030FBBD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27572AE2-EBB5-4E6F-87AD-EDF9030FBBD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A5CCDE2-5650-4C10-9022-4AD0C3F20965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A5CCDE2-5650-4C10-9022-4AD0C3F20965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE699FDD-716D-40CE-99A9-BFB4A2F4E83B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE699FDD-716D-40CE-99A9-BFB4A2F4E83B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38A7CCBC-3898-4CA1-8B42-88B00154DA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38A7CCBC-3898-4CA1-8B42-88B00154DA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38A7CCBC-3898-4CA1-8B42-88B00154DA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38A7CCBC-3898-4CA1-8B42-88B00154DA43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAB9811F-403E-43C0-BED9-A7A15F5E8D07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB9811F-403E-43C0-BED9-A7A15F5E8D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB9811F-403E-43C0-BED9-A7A15F5E8D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB9811F-403E-43C0-BED9-A7A15F5E8D07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD4D24F-A270-4AA8-AC01-812FB6C81200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD4D24F-A270-4AA8-AC01-812FB6C81200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72F78A91-5D0E-4DC2-881E-7A0A48FD4239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72F78A91-5D0E-4DC2-881E-7A0A48FD4239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72F78A91-5D0E-4DC2-881E-7A0A48FD4239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72F78A91-5D0E-4DC2-881E-7A0A48FD4239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA54725-E7A2-4232-ABE9-CC41275D16EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA54725-E7A2-4232-ABE9-CC41275D16EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA54725-E7A2-4232-ABE9-CC41275D16EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA54725-E7A2-4232-ABE9-CC41275D16EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B446ACF2-4FDC-4AFF-AF00-72177BC0E61C} = {AFA579DA-4AF6-4941-9BAF-F2053DBBC290}
+		{AB8C66E1-5531-4A75-8436-EE67B6732538} = {AFA579DA-4AF6-4941-9BAF-F2053DBBC290}
+		{56D4F01D-5A13-405D-8C52-D59A8DE24A31} = {A8C82BC5-399B-4899-BA10-B2AEEFE3DEB2}
+		{27572AE2-EBB5-4E6F-87AD-EDF9030FBBD8} = {A8C82BC5-399B-4899-BA10-B2AEEFE3DEB2}
+		{0A5CCDE2-5650-4C10-9022-4AD0C3F20965} = {A8C82BC5-399B-4899-BA10-B2AEEFE3DEB2}
+		{BE699FDD-716D-40CE-99A9-BFB4A2F4E83B} = {AFA579DA-4AF6-4941-9BAF-F2053DBBC290}
+		{38A7CCBC-3898-4CA1-8B42-88B00154DA43} = {A8C82BC5-399B-4899-BA10-B2AEEFE3DEB2}
+		{DAB9811F-403E-43C0-BED9-A7A15F5E8D07} = {AFA579DA-4AF6-4941-9BAF-F2053DBBC290}
+		{72F78A91-5D0E-4DC2-881E-7A0A48FD4239} = {A8C82BC5-399B-4899-BA10-B2AEEFE3DEB2}
+		{4AA54725-E7A2-4232-ABE9-CC41275D16EE} = {915202BF-2724-4FA6-8A0C-611C4C205725}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {512FB481-2FE1-4B0C-8A7F-6D810B83D236}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\DialogueFix\DialogueFix.Core\DialogueFix.Core.projitems*{0a5ccde2-5650-4c10-9022-4ad0c3f20965}*SharedItemsImports = 13
+		src\DialogueFix\DialogueFix.Core\DialogueFix.Core.projitems*{27572ae2-ebb5-4e6f-87ad-edf9030fbbd8}*SharedItemsImports = 5
+		src\Shared\Shared.projitems*{2fd4d24f-a270-4aa8-ac01-812fb6c81200}*SharedItemsImports = 13
+		src\DialogueFix\DialogueFix.Core\DialogueFix.Core.projitems*{38a7ccbc-3898-4ca1-8b42-88b00154da43}*SharedItemsImports = 5
+		src\Shared\Shared.projitems*{4aa54725-e7a2-4232-abe9-cc41275d16ee}*SharedItemsImports = 5
+		src\DialogueFix\DialogueFix.Core\DialogueFix.Core.projitems*{56d4f01d-5a13-405d-8c52-d59a8de24a31}*SharedItemsImports = 5
+		src\DialogueFix\DialogueFix.Core\DialogueFix.Core.projitems*{72f78a91-5d0e-4dc2-881e-7a0a48fd4239}*SharedItemsImports = 5
+		src\Uncensor\Uncensor.Core\Uncensor.Core\Uncensor.Core.projitems*{ab8c66e1-5531-4a75-8436-ee67b6732538}*SharedItemsImports = 5
+		src\Uncensor\Uncensor.Core\Uncensor.Core\Uncensor.Core.projitems*{b446acf2-4fdc-4aff-af00-72177bc0e61c}*SharedItemsImports = 5
+		src\Uncensor\Uncensor.Core\Uncensor.Core\Uncensor.Core.projitems*{be699fdd-716d-40ce-99a9-bfb4a2f4e83b}*SharedItemsImports = 13
+		src\Uncensor\Uncensor.Core\Uncensor.Core\Uncensor.Core.projitems*{dab9811f-403e-43c0-bed9-a7a15f5e8d07}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal
