@@ -108,9 +108,7 @@ namespace TextureReplacer {
 
             ParseAllReplacements();
             SceneManager.sceneLoaded += SpriteRendererSceneHandler;
-
-            //Harmony.CreateAndPatchAll(typeof(Hooks));
-            //if ()
+      
             Hooks.InstallHooks();
         }
 
@@ -203,8 +201,7 @@ namespace TextureReplacer {
             }
         }
 
-        Texture2D ParseReplacement(Dictionary<string, Texture2D> dic, string file) {
-            //var key = Path.GetFileNameWithoutExtension(file);
+        Texture2D ParseReplacement(Dictionary<string, Texture2D> dic, string file) {          
             var data = File.ReadAllBytes(file);
             var tex = new Texture2D(2, 2, TextureFormat.DXT1, false);
             tex.wrapMode = TextureWrapMode.Clamp;
@@ -284,10 +281,8 @@ namespace TextureReplacer {
 
             //texture.GetRawTextureData();  ??
 
-            File.WriteAllBytes(Path.Combine(dumpDir, (t.UniqueName() + ".png")), texture.EncodeToPNG());
-            //File.WriteAllBytes(Path.Combine(dumpDir, (t.UniqueName() + ".dat")), t.GetRawTextureData());
+            File.WriteAllBytes(Path.Combine(dumpDir, (t.UniqueName() + ".png")), texture.EncodeToPNG());           
             Destroy(texture);
-
         }
 
         internal void SpriteRendererAndImageEventHandler(object o, EventArgs e) {
@@ -303,14 +298,11 @@ namespace TextureReplacer {
             if (PluginEnabled.Value) {
                 SwapRendererSpritesAndImages(PluginEnabled.Value);
                 if (callGSH) gameSpecificHandler.SwapStates(PluginEnabled.Value);
-            }
-
-            ;
-            
-            //var image = new Image();
+            }            
         }
         //TODO: consolidate directory into <Behaviour, Texture> instead
         //might require special casing per behaviour type by still probably less cruft?
+        //not even sure if we need the image part of these methods any more??
         internal void RefreshRendererSpritesAndImages() {
             originalRendererSprites.Clear();
             originalImageSprites.Clear();
@@ -438,14 +430,6 @@ namespace TextureReplacer {
             temp.name = sprite.name;
             return temp;
         }
-
-        //public static Sprite GetImageSprite(this Image image) {
-        //    return (Sprite) AccessTools.Field(typeof(Image), "m_Sprite").GetValue(image);
-        //}
-
-        //public static void SetImageSprite(this Image image, Sprite sprite) {
-        //    AccessTools.Field(typeof(Image), "m_Sprite").SetValue(image, sprite);
-        //}
     }
 
     internal static class GameSpecificHandlerGenerator {
