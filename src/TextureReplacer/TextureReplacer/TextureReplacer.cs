@@ -2,21 +2,14 @@
 using System;
 using BepInEx;
 using System.IO;
-using HarmonyLib;
 using UnityEngine;
-using MonoMod.Cil;
 using System.Linq;
-using UnityEngine.UI;
 using BepInEx.Logging;
 using BepInEx.Configuration;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using static System.Net.Mime.MediaTypeNames;
 using Image = UnityEngine.UI.Image;
-using System.Collections.Concurrent;
-using System.Reflection;
-using System.CodeDom;
+
 
 namespace TextureReplacer {
     [BepInPlugin("TextureReplacer", "JSK Texture Replacer", "1.0.0.0")]
