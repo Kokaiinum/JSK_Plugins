@@ -38,7 +38,7 @@ namespace DialogueFix {
         [HarmonyILManipulator, HarmonyPatch(typeof(H_Manager), "Update")]
         public static void HManagerUpdateManipulator(ILContext ctx) {            
             var boolArray = new string[6] { "_nakadashi1", "_nakadashi2", "_resdashi1", "_resdashi2" , "_ikukari1", "_ikukari2" };
-            var varArray = new string[6] { "Heroine1_NAKADASHI", "Heroine2_NAKADASHI", "Heroine1_RESDASHI", "Heroine2_RESDASHI", "Heroine1_IKU_KUR", "Heroine1_IKU_KUR" };
+            var varArray = new string[6] { "Heroine1_NAKADASHI", "Heroine2_NAKADASHI", "Heroine1_RESDASHI", "Heroine2_RESDASHI", "Heroine1_IKU_KURI", "Heroine2_IKU_KURI" };
             for (int i = 0; i < 4; i++) {
                 var c = new ILCursor(ctx);
                 CheckReplacer(c, varArray[i], boolArray[i]);
