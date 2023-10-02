@@ -52,7 +52,7 @@ namespace TextureReplacer {
         public bool RefreshSprites() {
             btnList.Clear();
             originalButtonToSpriteMap.Clear();
-            replacementButtonToSpriteMap.Clear();
+            replacementButtonToSpriteMap.ClearAndDestroy();
             btnList = Resources.FindObjectsOfTypeAll<Btn_Ikou>().ToList();
             if (btnList.Count <= 0) return false;
             foreach (var btn in btnList) {

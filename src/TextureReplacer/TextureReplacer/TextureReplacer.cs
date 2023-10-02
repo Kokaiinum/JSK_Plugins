@@ -441,7 +441,7 @@ namespace TextureReplacer {
             dic.Clear();
         }
 
-        public static void ClearAndDestroy<K, T>(this Dictionary<string, Dictionary<K, T>> dic) where T : UnityEngine.Object {
+        public static void ClearAndDestroy<K, T, R>(this Dictionary<R, Dictionary<K, T>> dic) where T : UnityEngine.Object {
             foreach (Dictionary<K, T> innerDic in  dic.Values) {
                 innerDic.ClearAndDestroy<K, T>();
             }

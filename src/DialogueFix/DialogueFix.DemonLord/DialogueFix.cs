@@ -43,8 +43,9 @@ namespace DialogueFix {
 
         internal static bool _nakadashi = false;
 
-        //TODO: This is read for endings, so fix that
-        [HarmonyILManipulator, HarmonyPatch(typeof(H_Manager), "Update")]
+        [HarmonyILManipulator]
+        [HarmonyPatch(typeof(H_Manager), "Update")]
+        [HarmonyPatch(typeof(End_Manager), "Update")]
         public static void HManagerUpdateManipulator(ILContext ctx) {
             var c = new ILCursor(ctx);
 
@@ -74,6 +75,11 @@ namespace DialogueFix {
             if (!_nakadashi) return;
 
             Main_System.Heroine1_NAKADASHI = __state;
+        }
+
+        [HarmonyPrefix, HarmonyPatch(typeof(End_Manager), nameof(End_Manager.Awake))]
+        public static void EndManagerAwakePrefix() {
+            _nakadashi = false;
         }
     }
 }
