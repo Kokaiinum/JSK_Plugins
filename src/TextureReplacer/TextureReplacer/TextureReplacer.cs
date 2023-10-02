@@ -9,7 +9,7 @@ using BepInEx.Configuration;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using Image = UnityEngine.UI.Image;
-
+using HarmonyLib;
 
 namespace TextureReplacer {
     [BepInPlugin("TextureReplacer", "JSK Texture Replacer", "1.0.0.0")]
@@ -101,7 +101,7 @@ namespace TextureReplacer {
 
             ParseAllReplacements();
             SceneManager.sceneLoaded += SpriteRendererSceneHandler;
-      
+
             Hooks.InstallHooks();
         }
 
@@ -167,7 +167,7 @@ namespace TextureReplacer {
 
         void ParseAllReplacements() {
             currentReplacement = null;
-            replacements.Clear();
+            replacements.ClearAndDestroy();
             var dirs = Directory.GetDirectories(texDir).Where(x => (Directory.GetFiles(x, "*.png").Length > 0)).Select(y => Path.GetFileName(y)).ToArray();
             if (dirs.Length == 0) {
                 logger.LogMessage("No replacement texture folders found!");
@@ -187,14 +187,14 @@ namespace TextureReplacer {
         }
 
         void ParseReplacements(Dictionary<string, Texture2D> dic, string dir) {
-            dic.Clear();
+            dic.ClearAndDestroy();
             var files = Directory.GetFiles(Path.Combine(texDir, dir), "*.png");
             foreach (var file in files) {
                 _ = ParseReplacement(dic, file);
             }
         }
 
-        Texture2D ParseReplacement(Dictionary<string, Texture2D> dic, string file) {          
+        Texture2D ParseReplacement(Dictionary<string, Texture2D> dic, string file) {
             var data = File.ReadAllBytes(file);
             var tex = new Texture2D(2, 2, TextureFormat.DXT1, false);
             tex.wrapMode = TextureWrapMode.Clamp;
@@ -274,7 +274,7 @@ namespace TextureReplacer {
 
             //texture.GetRawTextureData();  ??
 
-            File.WriteAllBytes(Path.Combine(dumpDir, (t.UniqueName() + ".png")), texture.EncodeToPNG());           
+            File.WriteAllBytes(Path.Combine(dumpDir, (t.UniqueName() + ".png")), texture.EncodeToPNG());
             Destroy(texture);
         }
 
@@ -283,7 +283,7 @@ namespace TextureReplacer {
             if (callGSH) gameSpecificHandler.SwapStates(PluginEnabled.Value);
         }
 
-        internal void SpriteRendererSceneHandler(Scene scene, LoadSceneMode mode) {           
+        internal void SpriteRendererSceneHandler(Scene scene, LoadSceneMode mode) {
             currentSpriteRenderers = Resources.FindObjectsOfTypeAll<SpriteRenderer>().ToList();
             currentImages = Resources.FindObjectsOfTypeAll<CanvasRenderer>().Select(x => x.gameObject).Where(x => x.GetComponent<Image> != null).Select(x => x.GetComponent<Image>()).ToList();
             RefreshRendererSpritesAndImages();
@@ -291,7 +291,7 @@ namespace TextureReplacer {
             if (PluginEnabled.Value) {
                 SwapRendererSpritesAndImages(PluginEnabled.Value);
                 if (callGSH) gameSpecificHandler.SwapStates(PluginEnabled.Value);
-            }            
+            }
         }
         //TODO: consolidate directory into <Behaviour, Texture> instead
         //might require special casing per behaviour type by still probably less cruft?
@@ -299,8 +299,8 @@ namespace TextureReplacer {
         internal void RefreshRendererSpritesAndImages() {
             originalRendererSprites.Clear();
             originalImageSprites.Clear();
-            replacementRendererSprites.Clear();
-            replacementImageSprites.Clear();
+            replacementRendererSprites.ClearAndDestroy();
+            replacementImageSprites.ClearAndDestroy();
             foreach (SpriteRenderer spriteRenderer in currentSpriteRenderers) {
                 if (spriteRenderer?.sprite?.texture != null) {
                     originalRendererSprites[spriteRenderer] = spriteRenderer.sprite;
@@ -323,7 +323,7 @@ namespace TextureReplacer {
             }
         }
 
-    
+
 
         internal void DumpRendererSprites() {
             foreach (Sprite sprite in originalRendererSprites.Values) {
@@ -337,10 +337,16 @@ namespace TextureReplacer {
         }
 
         internal void CreateNewSpriteAndSetRelationship(SpriteRenderer sR, Texture2D tex) {
+            if (replacementRendererSprites.TryGetValue(sR, out var sprite)) {
+                Destroy(sprite);
+            }
             replacementRendererSprites[sR] = sR.sprite.ReplaceTexture(tex);
         }
 
         internal void CreateNewSpriteAndSetRelationship(Image i, Texture2D tex) {
+            if (replacementImageSprites.TryGetValue(i, out var sprite)) {
+                Destroy(sprite);
+            }
             replacementImageSprites[i] = i.sprite.ReplaceTexture(tex);
         }
 
@@ -365,6 +371,7 @@ namespace TextureReplacer {
                 }
             }
             if (srToRemove != null) {
+                Destroy(replacementRendererSprites[srToRemove]);
                 replacementRendererSprites.Remove(srToRemove);
                 return;
             }
@@ -374,7 +381,10 @@ namespace TextureReplacer {
                     imageToRemove = i;
                 }
             }
-            if (imageToRemove != null) replacementImageSprites.Remove(imageToRemove);
+            if (imageToRemove != null) {
+                Destroy(replacementImageSprites[imageToRemove]);
+                replacementImageSprites.Remove(imageToRemove); 
+            }
 
         }
 
@@ -423,6 +433,20 @@ namespace TextureReplacer {
             temp.name = sprite.name;
             return temp;
         }
+
+        public static void ClearAndDestroy<K, T>(this Dictionary<K, T> dic) where T : UnityEngine.Object {
+            foreach (T obj in dic.Values) {
+                UnityEngine.Object.Destroy(obj);
+            }
+            dic.Clear();
+        }
+
+        public static void ClearAndDestroy<K, T>(this Dictionary<string, Dictionary<K, T>> dic) where T : UnityEngine.Object {
+            foreach (Dictionary<K, T> innerDic in  dic.Values) {
+                innerDic.ClearAndDestroy<K, T>();
+            }
+            dic.Clear();
+        }
     }
 
     internal static class GameSpecificHandlerGenerator {
@@ -430,7 +454,7 @@ namespace TextureReplacer {
             switch (productName) {
                 case "PapaGAL":
                 case "WakaraseMaohsama":
-                        return new BtnIkouHandler();
+                    return new BtnIkouHandler();
                 default: return null;
             }
 
