@@ -124,16 +124,7 @@ namespace TextureReplacer {
                     DumpRendererSprites();
                     if (gameSpecificHandler != null) gameSpecificHandler.DumpSprites();
                 }
-            }
-
-            if (Input.GetKeyDown(KeyCode.T)) {
-                var sprites = Resources.FindObjectsOfTypeAll<Sprite>().Where(x => x != null && x.texture != null && x.texture.height > 0 && x.texture.width > 0).ToArray();
-                logger.LogMessage($"currenntly {sprites.Length} sprites");
-                foreach (Sprite sprite in sprites) {
-                    DumpSprite(sprite.texture);
-                }
-
-            }
+            }                
 
             if (ReloadHotkey.Value.IsDown()) {
                 deletedTextures.Clear();
