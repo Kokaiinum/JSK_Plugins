@@ -12,7 +12,7 @@ using Image = UnityEngine.UI.Image;
 using HarmonyLib;
 
 namespace TextureReplacer {
-    [BepInPlugin("TextureReplacer", "JSK Texture Replacer", "1.0.0.0")]
+    [BepInPlugin("TextureReplacer", "JSK Texture Replacer", "1.0.1.0")]
     public class TextureReplacerPlugin : BaseUnityPlugin {
 
         internal static ManualLogSource logger;
